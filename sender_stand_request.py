@@ -1,6 +1,7 @@
-
+from configuration import URL_SERVICE
+URL_KITS = f"{URL_SERVICE}/api/v1/kits"
 import requests
-URL_SERVICE = "https://63a5fab1-215b-4b49-bf84-da3e7d9f1c70.serverhub.tripleten-services.com/api/v1/users"
+
 def send_post_request(kit_body):
     url = f"{URL_SERVICE}/api/v1/kits"
     headers = {
