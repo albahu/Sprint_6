@@ -1,7 +1,10 @@
+import configuration
+from configuration import URL_SERVICE
 import requests
 
+url = f"{configuration.URL_SERVICE}/api/v1/users/"
 
-url = "https://63a5fab1-215b-4b49-bf84-da3e7d9f1c70.serverhub.tripleten-services.com/api/v1/users/"
+
 json_data = {
     "firstName": "Andrea",
     "phone": "+11234567890",
@@ -21,3 +24,10 @@ if response.status_code == 201:
 else:
     print(f"Error al enviar la solicitud. Código de respuesta: {response.status_code}")
     print("Mensaje de error:", response.text)
+
+def get_kit_body():
+    return None
+
+
+def send_post_request():
+    return None
