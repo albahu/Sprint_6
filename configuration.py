@@ -1,3 +1,4 @@
-URL_SERVICE = 'https://63a5fab1-215b-4b49-bf84-da3e7d9f1c70.serverhub.tripleten-services.com'
+URL_SERVICE = 'https://9d333307-879d-440a-92a0-8d931de87e3c.serverhub.tripleten-services.com'
 CREATE_USER_PATH = '/api/v1/users'
-KITS_PATH = '/api/v1/kits'
+CREATE_KIT = '/api/v1/kits'
+DOC_PATH = '/docs/'
