@@ -13,13 +13,13 @@ def get_token():
     return response_data['authToken']
 
 def send_post_request(kit_body):
-        auth_token = get_token()  # Con esto vas a jalar el token que has creado arriba
+        auth_token = get_token()  
         headers = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {auth_token}"
         }
         response = requests.post(configuration.URL_SERVICE + configuration.CREATE_KIT, headers=headers,
-                                 json=kit_body)  # esta es la respuesta de la funcion, de tu api
+                                 json=kit_body)  # esta es la respuesta de la funcion de la api
 
         return response  # con esto retornamos la respuesta para usarla en una funcion
 
