@@ -19,9 +19,9 @@ def send_post_request(kit_body):
             "Authorization": f"Bearer {auth_token}"
         }
         response = requests.post(configuration.URL_SERVICE + configuration.CREATE_KIT, headers=headers,
-                                 json=kit_body)  # esta es la respuesta de la funcion de la api
+                                 json=kit_body)  
 
-        return response  # con esto retornamos la respuesta para usarla en una funcion
+        return response  
 
 
 
