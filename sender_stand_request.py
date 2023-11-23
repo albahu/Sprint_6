@@ -1,32 +1,27 @@
-from configuration import URL_SERVICE
-URL_KITS = f"{URL_SERVICE}/api/v1/kits"
+import configuration
 import requests
+import data
+import json
+def post_new_user(body):
+    return requests.post(configuration.URL_SERVICE + configuration.CREATE_USER_PATH,
+                         json=body,
+                         headers=data.headers)
+
+def get_token():
+    response = post_new_user(data.user_body)
+    response_data = response.json()
+    return response_data['authToken']
 
 def send_post_request(kit_body):
-    url = f"{URL_SERVICE}/api/v1/kits"
-    headers = {
-        "Content-Type": "application/json"
-    }
-    try:
-        response = requests.post(url, json=kit_body, headers=headers)
-        return response
-    except requests.exceptions.RequestException as e:
-        print(f"Error de conexión: {e}")
+        auth_token = get_token()  # Con esto vas a jalar el token que has creado arriba
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {auth_token}"
+        }
+        response = requests.post(configuration.URL_SERVICE + configuration.CREATE_KIT, headers=headers,
+                                 json=kit_body)  # esta es la respuesta de la funcion, de tu api
 
-# Pruebas de envío de solicitudes según la lista de comprobación
-def test_requests():
-    kit_body_1 = {"name": "a"}
-    kit_body_2 = {"name": "AbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabC"}
-    kit_body_3 = {"name": ""}
-    kit_body_4 = {"name": "AbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcD"}
-    kit_body_5 = {"name": "*%@"}
-    kit_body_6 = {"name": " A Aaa "}
-    kit_body_7 = {"name": "123"}
-    kit_body_8 = {}
-    kit_body_9 = {"name": 123}
-
-if __name__ == '__main__':
-    test_requests()
+        return response  # con esto retornamos la respuesta para usarla en una funcion
 
 
 
