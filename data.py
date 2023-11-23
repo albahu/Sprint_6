@@ -1,11 +1,4 @@
-import configuration
-from configuration import URL_SERVICE
-import requests
-
-url = f"{configuration.URL_SERVICE}/api/v1/users/"
-
-
-json_data = {
+user_body = {
     "firstName": "Andrea",
     "phone": "+11234567890",
     "address": "123 Elm Street, Hilltop"
@@ -14,20 +7,13 @@ headers = {
     "Content-Type": "application/json"
 }
 
-
-response = requests.post(url, json=json_data, headers=headers)
-
-
-if response.status_code == 201:
-    print("Solicitud POST exitosa. Datos enviados correctamente.")
-    print("Respuesta del servidor:", response.json())
-else:
-    print(f"Error al enviar la solicitud. Código de respuesta: {response.status_code}")
-    print("Mensaje de error:", response.text)
-
-def get_kit_body():
-    return None
-
-
-def send_post_request():
-    return None
+class KitBody:
+    kit_body_1 = {"name": "a"}
+    kit_body_2 = {"name": "AbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabC"}
+    kit_body_3 = {"name": ""}
+    kit_body_4 = {"name": "AbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcD"}
+    kit_body_5 = {"name": "*%@"}
+    kit_body_6 = {"name": " A Aaa "}
+    kit_body_7 = {"name": "123"}
+    kit_body_8 = {}
+    kit_body_9 = {"name": '123'}
